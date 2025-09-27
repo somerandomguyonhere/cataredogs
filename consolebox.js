@@ -1,0 +1,37 @@
+  (function() {
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100%';
+        overlay.style.height = '100%';
+        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+        overlay.style.zIndex = '9999';
+        overlay.id = 'customOverlay';
+        const box = document.createElement('div');
+        box.style.position = 'fixed';
+        box.style.top = '50%';
+        box.style.left = '50%';
+        box.style.transform = 'translate(-50%, -50%)';
+        box.style.backgroundColor = 'white';
+        box.style.padding = '20px 30px';
+        box.style.borderRadius = '8px';
+        box.style.zIndex = '9999';
+        box.style.textAlign = 'center';
+        box.id = 'customModal';
+        const message = document.createElement('p');
+        message.textContent = "Hey! You just pasted code in the console, do you know how dangerous that is? You got lucky that this wasn't a scam, there are people out there that trick you into pasting code into your console to steal your information, if i managed to get you to paste this then it should be easy for other people to do so too. Please make sure you know what you are pasting in the console before you actually do so.";
+        const button = document.createElement('button');
+        button.textContent = 'OK';
+        button.style.borderRadius = '5px';
+        button.style.padding = '5px 10px';
+        button.style.cursor = 'pointer';
+        button.onclick = function() {
+            document.body.removeChild(overlay);
+            document.body.removeChild(box);
+        };
+        box.appendChild(message);
+        box.appendChild(button);
+        document.body.appendChild(overlay);
+        document.body.appendChild(box);
+    })();
